@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNEAKERS - Онлайн-магазин обуви</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        /* Custom scrollbar for brand slider */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased">
+
+    <!-- НАВИГАЦИЯ (HEADER) -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Логотип -->
+            <div class="flex items-center gap-2 cursor-pointer">
+                <div class="w-10 h-10 bg-orange-500 rounded-xl flex items-center justify-center text-white text-xl font-bold shadow-md shadow-orange-500/20">
+                    <i class="bi bi-lightning-fill"></i>
+                </div>
+                <span class="text-2xl font-bold tracking-tight">SNEAK<span class="text-orange-500">ERS</span></span>
+            </div>
+
+            <!-- Главное меню -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-slate-600">
+                <a href="#" class="text-orange-500 hover:text-orange-600 transition-colors">Главная</a>
+                <a href="#" class="hover:text-orange-500 transition-colors">Мужская обувь</a>
+                <a href="#" class="hover:text-orange-500 transition-colors">Женская обувь</a>
+                <a href="#" class="hover:text-orange-500 transition-colors">Коллекции</a>
+                <a href="#" class="hover:text-orange-500 transition-colors">О нас</a>
+            </nav>
+
+            <!-- Иконки & Профиль -->
+            <div class="flex items-center gap-6">
+                <!-- Поиск на десктопе -->
+                <div class="relative hidden lg:block w-64">
+                    <input type="text" id="search-input" placeholder="Поиск моделей..." class="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all">
+                    <i class="bi bi-search absolute left-3 top-2.5 text-slate-400 text-sm"></i>
+                </div>
+
+                <!-- Избранное -->
+                <button class="relative p-2 text-slate-600 hover:text-orange-500 transition-colors cursor-pointer" onclick="toggleFavoritesModal()">
+                    <i class="bi bi-heart text-xl"></i>
+                    <span id="fav-badge" class="absolute -top-1 -right-1 bg-slate-800 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold hidden">0</span>
+                </button>
+
+                <!-- Корзина -->
+                <button class="relative p-2 text-slate-600 hover:text-orange-500 transition-colors cursor-pointer" onclick="toggleCartDrawer()">
+                    <i class="bi bi-bag text-xl"></i>
+                    <span id="cart-badge" class="absolute -top-1 -right-1 bg-orange-500 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold hidden">0</span>
+                </button>
+
+                <div class="w-px h-6 bg-slate-200 hidden md:block"></div>
+
+                <!-- Профиль -->
+                <div class="flex items-center gap-3 cursor-pointer group">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Avatar" class="w-9 h-9 rounded-xl object-cover ring-2 ring-transparent group-hover:ring-orange-500 transition-all">
+                    <span class="text-sm font-medium hidden md:block group-hover:text-orange-500 transition-colors">Анастасия</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-8">
+        
+        <!-- ПРОМО БАННЕР -->
+        <section class="mb-12 relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-orange-950 text-white p-8 md:p-12 lg:p-16 flex flex-col md:flex-row items-center justify-between shadow-xl">
+            <div class="max-w-xl space-y-6 z-10 text-center md:text-left">
+                <span class="bg-orange-500/20 text-orange-400 font-semibold px-4 py-1.5 rounded-full text-xs uppercase tracking-wider border border-orange-500/30">Эксклюзивный релиз</span>
+                <h1 class="text-4xl lg:text-6xl font-extrabold tracking-tight leading-tight">Air Max Retro <br class="hidden lg:inline"><span class="text-orange-500">Edition '26</span></h1>
+                <p class="text-slate-300 text-sm lg:text-base">Легендарный силуэт возвращается с усовершенствованной амортизацией и футуристичным дизайном элементов. Почувствуйте комфорт нового поколения.</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-2">
+                    <button class="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-3.5 rounded-xl shadow-lg shadow-orange-500/20 active:scale-98 transition-all cursor-pointer">Купить сейчас</button>
+                    <button class="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3.5 rounded-xl border border-white/10 transition-all cursor-pointer" onclick="openProductModal(products[0])">Узнать больше</button>
+                </div>
+            </div>
+            <!-- Декоративный кроссовок -->
+            <div class="relative mt-8 md:mt-0 max-w-xs lg:max-w-md xl:max-w-lg transition-transform hover:scale-105 duration-500">
+                <div class="absolute inset-0 bg-orange-500/20 blur-3xl rounded-full"></div>
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80" alt="Nike Air Max" class="relative z-10 drop-shadow-[0_25px_25px_rgba(0,0,0,0.5)] -rotate-12 transform">
+            </div>
+        </section>
+
+        <!-- ФИЛЬТРЫ И БРЕНДЫ -->
+        <section class="mb-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <!-- Бренды -->
+            <div class="flex items-center gap-3 overflow-x-auto no-scrollbar py-1">
+                <button class="brand-btn active-brand bg-slate-900 text-white font-medium px-6 py-2.5 rounded-xl transition-all cursor-pointer whitespace-nowrap" onclick="filterBrand('all', this)">Все бренды</button>
+                <button class="brand-btn bg-white hover:bg-slate-50 border border-slate-200 text-slate-600 font-medium px-6 py-2.5 rounded-xl transition-all cursor-pointer whitespace-nowrap" onclick="filterBrand('Nike', this)">Nike</button>
+                <button class="brand-btn bg-white hover:bg-slate-50 border border-slate-200 text-slate-600 font-medium px-6 py-2.5 rounded-xl transition-all cursor-pointer whitespace-nowrap" onclick="filterBrand('Adidas', this)">Adidas</button>
+                <button class="brand-btn bg-white hover:bg-slate-50 border border-slate-200 text-slate-600 font-medium px-6 py-2.5 rounded-xl transition-all cursor-pointer whitespace-nowrap" onclick="filterBrand('New Balance', this)">New Balance</button>
+                <button class="brand-btn bg-white hover:bg-slate-50 border border-slate-200 text-slate-600 font-medium px-6 py-2.5 rounded-xl transition-all cursor-pointer whitespace-nowrap" onclick="filterBrand('Puma', this)">Puma</button>
+            </div>
+
+            <!-- Сортировка -->
+            <div class="flex items-center gap-4 self-end lg:self-auto">
+                <span class="text-sm text-slate-500">Сортировка:</span>
+                <select id="sort-select" onchange="sortProducts()" class="bg-white border border-slate-200 rounded-xl px-4 py-2 text-sm font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 cursor-pointer">
+                    <option value="popular">По популярности</option>
+                    <option value="price-asc">Цена: от меньшей</option>
+                    <option value="price-desc">Цена: от большей</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- СЕТКА ТОВАРОВ -->
+        <section>
+            <h2 class="text-2xl font-bold tracking-tight mb-6 flex items-center gap-2">
+                Каталог обуви
+                <span id="catalog-count" class="text-sm font-normal text-slate-400 bg-slate-100 px-2.5 py-0.5 rounded-full">8 моделей</span>
+            </h2>
+            
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Карточки генерируются скриптом JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- СЛАЙДЕР КОРЗИНЫ (DRAWER) -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden">
+        <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-xs transition-opacity" onclick="toggleCartDrawer()"></div>
+        <div class="absolute inset-y-0 right-0 max-w-md w-full bg-white shadow-2xl flex flex-col">
+            <!-- Шапка корзины -->
+            <div class="p-6 border-b border-slate-100 flex items-center justify-between">
+                <h3 class="text-lg font-bold flex items-center gap-2">
+                    <i class="bi bi-bag"></i> Ваша корзина
+                </h3>
+                <button class="p-2 hover:bg-slate-100 rounded-lg text-slate-400 hover:text-slate-600 transition-all cursor-pointer" onclick="toggleCartDrawer()">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <!-- Список товаров -->
+            <div id="cart-items-list" class="flex-1 overflow-y-auto p-6 space-y-4 no-scrollbar">
+                <!-- Заполняется динамически -->
+                <div class="text-center py-12 text-slate-400 flex flex-col items-center justify-center gap-3">
+                    <i class="bi bi-cart-x text-4xl"></i>
+                    <p>Корзина пуста. Время добавить кроссовки!</p>
+                </div>
+            </div>
+
+            <!-- Итоговый блок -->
+            <div class="p-6 border-t border-slate-100 bg-slate-50 space-y-4">
+                <div class="flex items-center justify-between text-sm text-slate-500">
+                    <span>Сумма товаров:</span>
+                    <span id="cart-subtotal">0 ₽</span>
+                </div>
+                <div class="flex items-center justify-between text-sm text-slate-500">
+                    <span>Доставка:</span>
+                    <span class="text-green-600 font-medium">Бесплатно</span>
+                </div>
+                <div class="w-full h-px bg-slate-200 my-2"></div>
+                <div class="flex items-center justify-between text-base font-bold text-slate-900">
+                    <span>Итого:</span>
+                    <span id="cart-total">0 ₽</span>
+                </div>
+                <button onclick="checkoutAlert()" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 rounded-xl shadow-lg shadow-orange-500/10 active:scale-98 transition-all mt-2 cursor-pointer">
+                    Оформить заказ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО ДЕТАЛЕЙ ТОВАРА -->
+    <div id="product-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 hidden">
+        <div class="absolute inset-0 bg-slate-900/50 backdrop-blur-xs" onclick="closeProductModal()"></div>
+        <div class="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative z-10 shadow-2xl flex flex-col md:flex-row">
+            <button class="absolute top-4 right-4 p-2.5 bg-slate-100 hover:bg-slate-200 rounded-full text-slate-500 transition-all z-20 cursor-pointer" onclick="closeProductModal()">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            
+            <!-- Левая часть: Изображение -->
+            <div class="w-full md:w-1/2 p-6 md:p-8 bg-slate-50 flex items-center justify-center relative">
+                <div class="absolute top-6 left-6" id="modal-brand-badge"></div>
+                <img id="modal-image" src="" alt="" class="max-h-72 object-contain drop-shadow-xl transform -rotate-6">
+            </div>
+
+            <!-- Правая часть: Контент -->
+            <div class="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-between space-y-6">
+                <div>
+                    <h3 id="modal-title" class="text-2xl font-bold text-slate-900 leading-tight"></h3>
+                    <div class="flex items-center gap-4 mt-2">
+                        <div class="flex items-center text-amber-500 text-sm gap-0.5">
+                            <i class="bi bi-star-fill"></i>
+                            <span id="modal-rating" class="font-semibold ml-1 text-slate-700"></span>
+                        </div>
+                        <span class="text-xs text-slate-400">•</span>
+                        <span class="text-xs text-green-600 bg-green-50 px-2 py-0.5 rounded-md font-medium">В наличии</span>
+                    </div>
+                    <p id="modal-desc" class="text-slate-500 text-sm mt-4 leading-relaxed"></p>
+                </div>
+
+                <!-- Выбор размера -->
+                <div>
+                    <div class="flex items-center justify-between text-sm mb-2">
+                        <span class="font-semibold">Выберите размер (EU):</span>
+                        <a href="#" class="text-orange-500 text-xs hover:underline">Таблица размеров</a>
+                    </div>
+                    <div class="grid grid-cols-4 gap-2" id="sizes-container">
+                        <!-- Наполняется динамически -->
+                    </div>
+                </div>
+
+                <!-- Цена и Кнопка -->
+                <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-4">
+                    <div>
+                        <span class="text-xs text-slate-400 block font-medium uppercase tracking-wider">Цена</span>
+                        <span id="modal-price" class="text-2xl font-black text-slate-900"></span>
+                    </div>
+                    <button id="modal-add-btn" class="flex-1 bg-slate-950 hover:bg-slate-900 text-white font-semibold py-3.5 px-6 rounded-xl shadow-lg transition-all text-center cursor-pointer">
+                        Добавить в корзину
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ФУТЕР -->
+    <footer class="bg-white border-t border-slate-100 mt-20 py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center text-sm text-slate-400">
+            <p>&copy; 2026 SNEAKERS Store. Спроектировано для десктопных браузеров как интерактивный UI-прототип.</p>
+        </div>
+    </footer>
+
+    <!-- СЦЕНАРИИ JAVASCRIPT -->
+    <script>
+        // База данных товаров
+        const products = [
+            { id: 1, name: "Nike Air Max Pulse", brand: "Nike", price: 14990, rating: 4.9, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80", desc: "Ультрасовременные кроссовки с точечной воздушной подушкой Air, обеспечивающей потрясающую упругость каждого шага. Верх из дышащего текстиля с кожаными накладками.", tag: "Хит" },
+            { id: 2, name: "Adidas Ultraboost Light", brand: "Adidas", price: 18400, rating: 4.8, image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=500&q=80", desc: "Самые легкие Ultraboost в истории. Промежуточная подошва Light BOOST возвращает на 4% больше энергии. Материал Primeknit+ идеально адаптируется к форме стопы.", tag: "New" },
+            { id: 3, name: "New Balance 574 Classic", brand: "New Balance", price: 12600, rating: 4.7, image: "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=500&q=80", desc: "Проверенная временем классика из благородной замши и легкой сетки. Технология подошвы ENCAP гарантирует непревзойденную поддержку и долговечность.", tag: "" },
+            { id: 4, name: "Puma RS-X Efekt", brand: "Puma", price: 11200, rating: 4.6, image: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=500&q=80", desc: "Массивный ретро-футуристичный дизайн с яркими блоками. Сложная многослойная конструкция верха и продвинутая система амортизации Running System.", tag: "-15%" },
+            { id: 5, name: "Nike Air Force 1 '07", brand: "Nike", price: 13900, rating: 5.0, image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=500&q=80", desc: "Легенда баскетбольных площадок и уличного стиля. Белоснежная премиальная кожа, перфорация на мыске и скрытая воздушная капсула Nike Air для мягкости.", tag: "Классика" },
+            { id: 6, name: "New Balance 990v6", brand: "New Balance", price: 24500, rating: 4.9, image: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&fit=crop&w=500&q=80", desc: "Премиальная модель американской сборки. Технология FuelCell обеспечивает стремительный импульс, а каркас ENCAP держит стопу в идеальном анатомическом положении.", tag: "Люкс" },
+            { id: 7, name: "Adidas Forum Low", brand: "Adidas", price: 10800, rating: 4.5, image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=500&q=80", desc: "Культовые кеды с ремешком на щиколотке. Идеальное сочетание винтажного баскетбольного вайба 80-х и современного урбанистического комфорта.", tag: "" },
+            { id: 8, name: "Puma Mirage Sport", brand: "Puma", price: 9500, rating: 4.4, image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=500&q=80", desc: "Дизайн навеян культурой электронной музыки и диджеинга. Сложные текстуры, легкие сетчатые вставки и цепкий протектор для динамичной городской жизни.", tag: " Sale" }
+        ];
+
+        // Состояния приложения
+        let cart = [];
+        let favorites = [];
+        let currentBrandFilter = 'all';
+        let selectedSize = null;
+
+        // Инициализация
+        window.addEventListener('DOMContentLoaded', () => {
+            renderProducts(products);
+            setupSearch();
+        });
+
+        // Отрисовка сетки товаров
+        function renderProducts(items) {
+            const grid = document.getElementById('products-grid');
+            document.getElementById('catalog-count').innerText = `${items.length} моделей`;
+            
+            if (items.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-16 text-slate-400">
+                        <i class="bi bi-search-heart text-4xl block mb-2"></i>
+                        Ничего не найдено по вашему запросу.
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = items.map(p => {
+                const isFav = favorites.includes(p.id);
+                return `
+                    <div class="bg-white rounded-2xl border border-slate-100 p-4 relative group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <!-- Тег и Избранное -->
+                            <div class="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
+                                ${p.tag ? `<span class="bg-slate-900 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wider">${p.tag}</span>` : '<div></div>'}
+                                <button onclick="toggleFavorite(${p.id}, event)" class="w-8 h-8 rounded-full bg-white/80 backdrop-blur-xs border border-slate-100 flex items-center justify-center text-slate-400 hover:text-red-500 hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-xs">
+                                    <i class="bi ${isFav ? 'bi-heart-fill text-red-500' : 'bi-heart'}"></i>
+                                </button>
+                            </div>
+                            
+                            <!-- Фото -->
+                            <div class="bg-slate-50 rounded-xl p-4 mb-4 flex items-center justify-center min-h-[180px] cursor-pointer" onclick="openProductModal(${JSON.stringify(p).replace(/"/g, '&quot;')})">
+                                <img src="${p.image}" alt="${p.name}" class="max-h-36 object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-md">
+                            </div>
+
+                            <!-- Инфо -->
+                            <span class="text-xs font-semibold text-slate-400 uppercase">${p.brand}</span>
+                            <h3 class="font-bold text-slate-800 text-sm mt-0.5 line-clamp-1 hover:text-orange-500 cursor-pointer" onclick='openProductModal(${JSON.stringify(p).replace(/"/g, '&quot;')})'>${p.name}</h3>
+                            
+                            <div class="flex items-center text-amber-500 text-xs gap-1 mt-1.5">
+                                <i class="bi bi-star-fill"></i>
+                                <span class="font-medium text-slate-600">${p.rating}</span>
+                            </div>
+                        </div>
+
+                        <!-- Цена и Добавление -->
+                        <div class="flex items-center justify-between mt-4 pt-3 border-t border-slate-50">
+                            <span class="font-black text-slate-900 text-base">${p.price.toLocaleString('ru-RU')} ₽</span>
+                            <button onclick="quickAddToCart(${p.id}, event)" class="bg-slate-100 hover:bg-orange-500 text-slate-800 hover:text-white w-9 h-9 rounded-xl flex items-center justify-center font-bold transition-all active:scale-95 cursor-pointer">
+                                <i class="bi bi-plus-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Фильтрация по брендам
+        function filterBrand(brand, btnElement) {
+            currentBrandFilter = brand;
+            document.querySelectorAll('.brand-btn').forEach(btn => {
+                btn.classList.remove('bg-slate-900', 'text-white', 'active-brand');
+                btn.classList.add('bg-white', 'text-slate-600', 'border-slate-200');
+            });
+            btnElement.classList.add('bg-slate-900', 'text-white', 'active-brand');
+            btnElement.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
+            applyFiltersAndSort();
+        }
+
+        // Умный поиск
+        function setupSearch() {
+            document.getElementById('search-input').addEventListener('input', () => {
+                applyFiltersAndSort();
+            });
+        }
+
+        // Сортировка
+        function sortProducts() {
+            applyFiltersAndSort();
+        }
+
+        // Комбайн фильтрации, поиска и сортировки
+        function applyFiltersAndSort() {
+            let filtered = [...products];
+            
+            // Фильтр бренда
+            if (currentBrandFilter !== 'all') {
+                filtered = filtered.filter(p => p.brand === currentBrandFilter);
+            }
+            
+            // Поиск
+            const query = document.getElementById('search-input').value.toLowerCase().trim();
+            if (query) {
+                filtered = filtered.filter(p => p.name.toLowerCase().includes(query) || p.brand.toLowerCase().includes(query));
+            }
+
+            // Сортировка
+            const sortType = document.getElementById('sort-select').value;
+            if (sortType === 'price-asc') {
+                filtered.sort((a, b) => a.price - b.price);
+            } else if (sortType === 'price-desc') {
+                filtered.sort((a, b) => b.price - a.price);
+            }
+            
+            renderProducts(filtered);
+        }
+
+        // Функционал Избранного
+        function toggleFavorite(id, event) {
+            if(event) event.stopPropagation();
+            const index = favorites.indexOf(id);
+            if (index === -1) {
+                favorites.push(id);
+            } else {
+                favorites.splice(index, 1);
+            }
+            updateBadges();
+            applyFiltersAndSort();
+        }
+
+        // Быстрое добавление в корзину (размер по умолчанию 42)
+        function quickAddToCart(id, event) {
+            if(event) event.stopPropagation();
+            addToCart(id, 42);
+            
+            // Легкий визуальный эффект на иконке корзины в хедере
+            const badge = document.getElementById('cart-badge');
+            badge.classList.add('scale-125', 'bg-green-500');
+            setTimeout(() => badge.classList.remove('scale-125', 'bg-green-500'), 400);
+        }
+
+        // Добавление в корзину с параметрами
+        function addToCart(id, size) {
+            const product = products.find(p => p.id === id);
+            const cartItem = cart.find(item => item.id === id && item.size === size);
+
+            if (cartItem) {
+                cartItem.quantity++;
+            } else {
+                cart.push({ ...product, size: size, quantity: 1 });
+            }
+
+            updateBadges();
+            renderCart();
+        }
+
+        // Обновление баджей на иконках шапки
+        function updateBadges() {
+            const cartBadge = document.getElementById('cart-badge');
+            const favBadge = document.getElementById('fav-badge');
+            
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            
+            if(totalItems > 0) {
+                cartBadge.innerText = totalItems;
+                cartBadge.classList.remove('hidden');
+            } else {
+                cartBadge.classList.add('hidden');
+            }
+
+            if(favorites.length > 0) {
+                favBadge.innerText = favorites.length;
+                favBadge.classList.remove('hidden');
+            } else {
+                favBadge.classList.add('hidden');
+            }
+        }
+
+        // Рендеринг корзины
+        function renderCart() {
+            const list = document.getElementById('cart-items-list');
+            
+            if (cart.length === 0) {
+                list.innerHTML = `
+                    <div class="text-center py-16 text-slate-400 flex flex-col items-center justify-center gap-3">
+                        <i class="bi bi-cart-x text-4xl"></i>
+                        <p class="text-sm">Корзина пуста. Время добавить кроссовки!</p>
+                    </div>
+                `;
+                document.getElementById('cart-subtotal').innerText = '0 ₽';
+                document.getElementById('cart-total').innerText = '0 ₽';
+                return;
+            }
+
+            list.innerHTML = cart.map((item, index) => `
+                <div class="flex items-center gap-4 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                    <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-contain bg-white rounded-lg p-1 mix-blend-multiply flex-shrink-0">
+                    <div class="flex-1 min-w-0">
+                        <h4 class="font-bold text-sm text-slate-800 truncate">${item.name}</h4>
+                        <p class="text-xs text-slate-400">Размер: ${item.size}</p>
+                        <span class="font-extrabold text-sm text-slate-900 block mt-1">${(item.price * item.quantity).toLocaleString('ru-RU')} ₽</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-1.5">
+                        <button onclick="changeQty(${index}, 1)" class="w-6 h-6 bg-white hover:bg-slate-200 rounded-md border border-slate-200 text-xs font-bold transition-all flex items-center justify-center cursor-pointer"><i class="bi bi-chevron-up"></i></button>
+                        <span class="text-xs font-bold text-slate-700 w-4 text-center">${item.quantity}</span>
+                        <button onclick="changeQty(${index}, -1)" class="w-6 h-6 bg-white hover:bg-slate-200 rounded-md border border-slate-200 text-xs font-bold transition-all flex items-center justify-center cursor-pointer"><i class="bi bi-chevron-down"></i></button>
+                    </div>
+                </div>
+            `).join('');
+
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            document.getElementById('cart-subtotal').innerText = `${subtotal.toLocaleString('ru-RU')} ₽`;
+            document.getElementById('cart-total').innerText = `${subtotal.toLocaleString('ru-RU')} ₽`;
+        }
+
+        // Изменение количества товара в корзине
+        function changeQty(index, change) {
+            cart[index].quantity += change;
+            if(cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            updateBadges();
+            renderCart();
+        }
+
+        // Переключение видимости корзины
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('cart-drawer');
+            drawer.classList.toggle('hidden');
+            if (!drawer.classList.contains('hidden')) {
+                renderCart();
+            }
+        }
+
+        // Заглушка клика на Избранное в шапке
+        function toggleFavoritesModal() {
+            alert(`В избранном сейчас товаров: ${favorites.length}. Нажмите на сердечко у карточек для добавления/удаления.`);
+        }
+
+        // Открытие карточки товара в модальном окне
+        function openProductModal(p) {
+            selectedSize = 42; // дефолтный выбранный размер
+            
+            document.getElementById('modal-title').innerText = p.name;
+            document.getElementById('modal-brand-badge').innerHTML = `<span class="bg-slate-900 text-white font-bold px-3 py-1 rounded-lg text-xs uppercase tracking-wider">${p.brand}</span>`;
+            document.getElementById('modal-image').src = p.image;
+            document.getElementById('modal-rating').innerText = p.rating;
+            document.getElementById('modal-desc').innerText = p.desc;
+            document.getElementById('modal-price').innerText = `${p.price.toLocaleString('ru-RU')} ₽`;
+            
+            // Генерация селектора размеров
+            const sizes = [40, 41, 42, 43, 44, 45];
+            const sizeContainer = document.getElementById('sizes-container');
+            sizeContainer.innerHTML = sizes.map(size => `
+                <button onclick="selectSize(${size}, this)" class="size-option border ${size === selectedSize ? 'border-slate-950 bg-slate-950 text-white font-bold' : 'border-slate-200 hover:border-slate-400 text-slate-700'} py-2.5 rounded-xl text-sm transition-all cursor-pointer">
+                    ${size}
+                </button>
+            `).join('');
+
+            // Привязка экшена к кнопке покупки
+            const addBtn = document.getElementById('modal-add-btn');
+            addBtn.onclick = () => {
+                addToCart(p.id, selectedSize);
+                closeProductModal();
+                toggleCartDrawer();
+            };
+
+            document.getElementById('product-modal').classList.remove('hidden');
+        }
+
+        function selectSize(size, btnElement) {
+            selectedSize = size;
+            document.querySelectorAll('.size-option').forEach(btn => {
+                btn.classList.remove('border-slate-950', 'bg-slate-950', 'text-white', 'font-bold');
+                btn.classList.add('border-slate-200', 'text-slate-700');
+            });
+            btnElement.classList.add('border-slate-950', 'bg-slate-950', 'text-white', 'font-bold');
+            btnElement.classList.remove('border-slate-200', 'text-slate-700');
+        }
+
+        function closeProductModal() {
+            document.getElementById('product-modal').classList.add('hidden');
+        }
+
+        function checkoutAlert() {
+            if(cart.length === 0) {
+                alert("Ваша корзина пуста!");
+                return;
+            }
+            alert("Заказ успешно сымитирован! Спасибо за тестирование интерфейса.");
+            cart = [];
+            updateBadges();
+            toggleCartDrawer();
+        }
+    </script>
+</body>
+</html>

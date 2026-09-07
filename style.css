@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: "PT Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: var(--body);
+}
+:root{
+    --body: #0D0D0D;
+    --header: #0A0A0A;
+    --header-navigation: #999999;
+    --header-navigation-hover: #F5F5F5;
+    --main-elements-back: #171717;
+    --green-texts: #A3FF12;
+    --text: #FFFFFF;
+}
+
+.header_conteiner{
+    background-color: var(--header);
+    display: flex;
+    justify-content: space-between;
+}
+.basket_button{
+    border: none;
+    background-color: var(--header);
+}
+.header_logo{
+    padding-top: 25px;
+    padding-left: 64px;
+}
+.header_navigation{
+    padding-top: 25px;
+    padding-bottom: 27px;
+}
+.navigation_link{
+    font-size: 15px;
+    color: var(--header-navigation);
+    text-decoration: none;
+    margin-left: 23px;
+
+    &:hover{
+        color: var(--header-navigation-hover)    
+    }
+}
+.header_basket{
+    padding-top: 23px;
+    padding-bottom: 28px;
+    padding-right: 95px;
+}
+
+/*  */
+
+.hero{
+    margin-inline: 40px;
+    padding-top: 24px;
+    background-color: var(--main-elements-back);
+}
+
+.hero_content_one{
+    color: var(--green-texts);
+    font-weight: bold;
+}
+.hero_content_two, .hero_content_three{
+    font-size: 52px;
+    font-weight: bold;
+    color: var(--text);
+    letter-spacing: 2px;
+}
+.hero_content_info{
+    font-size: 17px;
+    color: #BBBBBB;
+}
+.hero_content_button{
+    width: 135px;
+    height: 46px;
+    font-size: 13px;
+}
