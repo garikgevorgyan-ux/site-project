@@ -78,3 +78,19 @@ body{
     height: 46px;
     font-size: 13px;
 }
+.hero_content_button{
+    background-color: var(--green-texts);
+    border: none;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: #A3FF12;
+    transition: transform 0.1s ease;
+    &:hover{
+        opacity: 80%;
+    }
+    &:active{
+        transform: scale(0.95);
+    }
+}
