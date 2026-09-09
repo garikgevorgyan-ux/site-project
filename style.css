@@ -22,6 +22,7 @@ body{
     background-color: var(--header);
     display: flex;
     justify-content: space-between;
+    margin-bottom: 24px;
 }
 .basket_button{
     border: none;
@@ -57,11 +58,11 @@ body{
     margin-inline: 40px;
     padding-top: 24px;
     background-color: var(--main-elements-back);
+    border-radius: 10px;
 }
 .hero_content{
     margin-left: 52px;
 }
-
 .hero_content_one{
     color: var(--green-texts);
     font-weight: bold;
