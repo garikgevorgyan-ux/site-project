@@ -63,6 +63,11 @@ body{
 .hero_content{
     margin-left: 52px;
 }
+.hero_conteiner { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .hero_content_one{
     color: var(--green-texts);
     font-weight: bold;
@@ -103,4 +108,12 @@ body{
     &:active{
         transform: scale(0.95);
     }
+}
+.hero_perfomance{
+    background-color: #202020;
+    height: 300px;
+    width: 600px;
+    margin-top: 55px;
+    margin-right: 120px;
+    margin-bottom: 85px;
 }
