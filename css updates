@@ -1,0 +1,15 @@
+css updates
+/*.hero_conteiner { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}*/
+
+/* .hero_perfomance{
+    background-color: #202020;
+    height: 300px;
+    width: 600px;
+    margin-top: 55px;
+    margin-right: 120px;
+    margin-bottom: 85px;
+}*/
