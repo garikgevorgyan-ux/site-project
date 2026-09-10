@@ -117,3 +117,8 @@ body{
     margin-right: 120px;
     margin-bottom: 85px;
 }
+.hero_perfomance_photo{
+    z-index: 1;
+    height: 300px;
+    width: 600px;
+}
