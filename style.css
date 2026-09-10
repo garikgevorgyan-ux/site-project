@@ -112,17 +112,23 @@ body{
 .hero_perfomance{
     background-color: #202020;
     height: 300px;
-    width: 600px;
-    border-radius: 10px;
+    width: 500px;
     margin-top: 55px;
     margin-right: 120px;
     margin-bottom: 85px;
     position: relative;
+    rotate: -20deg;
+    transition: transform 0.5s ease;
+    
+    &:hover{
+        transform: scale(1.05);
+    }
 }
 .hero_perfomance_photo{
     z-index: 1;
-    height: 600px;
-    width: 600px;
+    height: 500px;
+    width: 500px;
     position: absolute;
-    top: -80px;
+    top: -60px;
+    left: 1px;
 }
