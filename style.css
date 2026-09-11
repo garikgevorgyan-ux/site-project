@@ -55,7 +55,7 @@ body{
 /*  */
 
 .hero{
-    margin-inline: 40px;
+    margin-inline: 85px;
     padding-top: 24px;
     background-color: var(--main-elements-back);
     border-radius: 10px;
