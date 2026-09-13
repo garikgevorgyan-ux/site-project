@@ -52,7 +52,7 @@ body{
     padding-right: 95px;
 }
 
-/*  */
+/* hero styling */
 
 .hero{
     margin-inline: 85px;
@@ -131,4 +131,24 @@ body{
     position: absolute;
     top: -60px;
     left: 1px;
+}
+/* Featured styling */
+.featured_header{
+    margin-inline: 100px;
+    margin-top: 52px;
+}
+.featured_header{
+    display: flex;
+    justify-content: space-between;
+}
+.featured_header_text{
+    color: #fff;
+}
+.feature_link{
+    font-size: 14px;
+    color: var(--green-texts);
+    text-decoration: none;
+    &:hover{
+        opacity: 80%;
+    }
 }
