@@ -16,6 +16,7 @@ body{
     --main-elements-back: #171717;
     --green-texts: #A3FF12;
     --text: #FFFFFF;
+    --card-background: #181818;
 }
 
 .header_conteiner{
@@ -151,4 +152,15 @@ body{
     &:hover{
         opacity: 80%;
     }
+}
+.featured_card_grid{
+    display: flex;
+    margin-inline: 85px;
+
+}
+.product_card{
+    height: 420px;
+    width: 320px;
+    background-color: var(--card-background);
+    border-radius: 10px;
 }
