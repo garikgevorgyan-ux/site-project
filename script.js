@@ -6,7 +6,9 @@ const products = [
 ];
 
 let cardPlace = [];
-
+window.addEventListener('DOMContentLoaded', () => {
+    cardsStructure(products);
+})
 function cardsStructure(items){
     const grid = document.querySelector('.featured_card_grid');
 
@@ -31,10 +33,23 @@ function cardsStructure(items){
                     </svg>
                 </button>
             </div>
-            
+
+            <!---information-->
+            <div class="product_info">
+                <h4 class="product_info_text">${item.name}</h4>
+            </div>
+
+            <!---price--->
+            <div class="product_price">
+                <p class=""Product_price_value>${item.price}</p>
+            </div>
+
+            <!---buy button--->
+            <div class="product_buy_element">
+                <button class="product_buy_button" onclick="productBuying()">ADD TO CARD</button>
+            </div>
         </div>
         `;
-    }
-    )
+    }).join("");
 
 }
