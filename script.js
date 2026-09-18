@@ -41,7 +41,7 @@ function cardsStructure(items){
 
             <!---price--->
             <div class="product_price">
-                <p class="Product_price_value">${item.price}</p>
+                <p class="Product_price_value">$${item.price}</p>
             </div>
 
             <!---buy button--->
