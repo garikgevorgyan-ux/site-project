@@ -189,3 +189,8 @@ body{
     margin-left: 22px;
     color: var(--text);
 }
+.Product_price_value{
+    font-size: 18px;
+    color: var(--green-texts);
+    font-weight: bold;
+}
