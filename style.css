@@ -156,6 +156,7 @@ body{
 .featured_card_grid{
     display: flex;
     margin-inline: 85px;
+    gap: 20px;
 
 }
 .product_card{
@@ -163,4 +164,28 @@ body{
     width: 320px;
     background-color: var(--card-background);
     border-radius: 10px;
+}
+.product_picture_favorite_heard{
+    height: 220px;
+    width: 270px;
+    margin-inline: 22px;
+    margin-top: 22px;
+    border-radius: 10px;
+    background-color: #252525;
+}
+.product_picture{
+    height: 215px;
+    width: 240px;
+    object-fit: cover;
+    margin-inline: 22px;
+    margin-top: 22px;
+    border-radius: 10px;
+    padding-bottom: 20px;
+}
+.product_info{
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 24px;
+    margin-left: 22px;
+    color: var(--text);
 }
