@@ -159,11 +159,17 @@ body{
     gap: 20px;
 
 }
+/* Product card styling and animating */
 .product_card{
     height: 420px;
     width: 320px;
     background-color: var(--card-background);
     border-radius: 10px;
+    margin-top: 25px;
+    transition: transform 0.5s ease;
+}
+.product_card:hover{
+    transform: translateY(-10px);
 }
 .product_picture_favorite_heard{
     height: 220px;
@@ -172,6 +178,26 @@ body{
     margin-top: 22px;
     border-radius: 10px;
     background-color: #252525;
+    position: relative;
+    transition: transform 0.5s ease;
+}
+.product_picture_favorite_heard:hover{
+    transform: scale(1.05);
+}
+.heard_button{
+    height: 30px;
+    width: 26px;
+    position: absolute;
+    top: 0;
+    right:0;
+    background-color: #252525;
+    border: none;
+}
+.heart{
+    fill: none;
+    stroke: white;
+    stroke-width: 2;
+    cursor: pointer;
 }
 .product_picture{
     height: 215px;
@@ -181,7 +207,9 @@ body{
     margin-top: 22px;
     border-radius: 10px;
     padding-bottom: 20px;
+    cursor: pointer;
 }
+
 .product_info{
     font-size: 17px;
     font-weight: bold;
@@ -193,4 +221,20 @@ body{
     font-size: 18px;
     color: var(--green-texts);
     font-weight: bold;
+    margin-top: 10px;
+    margin-left: 22px;
+}
+.product_buy_element{
+    margin-top: 31px;
+    margin-inline: 22px;
+}
+.product_buy_button{
+    height: 45px;
+    width: 276px;
+    border: solid 2px #555555;
+    border-radius: 10px;
+    background-color: #141414;
+    color: var(--text);
+    font-size: 13px;
+    cursor: pointer;
 }
