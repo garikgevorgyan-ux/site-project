@@ -242,5 +242,31 @@ body{
 .benefits_icon{
     width: 50px;
     height: 50px;
-    color: #ffffff;
+    color: var(--text);
+}
+.benefits_conteiner{
+    height: 110px;
+    width: 1360px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-inline: 85px;
+    background-color: var(--card-background);
+    border-radius: 10px;
+}
+.benefits_item{
+    display: flex;
+    margin: 29px 35px 37px 35px;
+}
+.benefits_text{
+    margin-left: 10px;
+}
+.benefits_text h4{
+    color: var(--text);
+    font-weight: bold;
+    margin-bottom: 9px;
+}
+.benefits_text p{
+    font-size: 13px;
+    color: #888888;
 }
