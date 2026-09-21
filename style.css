@@ -270,3 +270,65 @@ body{
     font-size: 13px;
     color: #888888;
 }
+/* benefits_registration styling */
+.benefits_registration_conteiner{
+    width: 1360px;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--card-background);
+    margin-inline: 85px;
+    margin-top: 40px;
+    border-radius: 10px;
+}
+.subscribe_offer{
+    margin-left: 30px;
+    margin-top: 25px;
+    margin-bottom: 45px;
+
+}
+.subscribe_offer_header{
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+.subscribe_offer_text{
+    color: #888888;
+    font-size: 13px;
+}
+.registration_place{
+    margin: 33px 50px 33px 0;
+}
+.email_registration{
+    height: 45px;
+    border-radius: 10px;
+    border: solid 2px #444444;
+    background-color: #222222;
+    color: #777777;
+    padding: 0 115px 0 20px; 
+    &::placeholder{
+        color: #777777;
+    }
+}
+.email_registration:focus{
+    outline: none;
+    border-color: var(--green-texts);
+}
+.registration_button{
+    height: 48.5px;
+    padding: 16px 41px 14px 41px;
+    border-radius: 10px;
+    background-color: var(--green-texts);
+    color: #000000;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    transition: transform 0.1s ease;
+    &:hover{
+        opacity: 80%;
+    }
+    &:active{
+        transform: scale(0.95);
+    }
+}
+
