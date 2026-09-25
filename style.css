@@ -17,6 +17,7 @@ body{
     --green-texts: #A3FF12;
     --text: #FFFFFF;
     --card-background: #181818;
+    --fotter-text-color: #777777;
 }
 
 .header_conteiner{
@@ -332,6 +333,7 @@ body{
         transform: scale(0.95);
     }
 }
+/* Footer */
 .footer{
     margin-top: 57px;
     background-color: var(--header);
@@ -342,7 +344,11 @@ body{
 }
 .footer_information_place{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-right: 209px;
+    margin-top: 38px;
+    margin-bottom: 184px;
+    gap: 206px;
 }
 .footer_place_one{
     margin-left: 64px;
@@ -350,4 +356,28 @@ body{
 }
 .footer_logo{
     margin-bottom: 14px;
+}
+.footer_place_one_text{
+    color: var(--fotter-text-color);
+    font-size: 12px;
+
+}
+.information_place{
+    display: flex;
+    flex-direction: column;
+    margin:0;
+    gap: 9px;
+}
+.information_place h5{
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 14px;
+}
+.information_place a{
+    text-decoration: none;
+    font-size: 13px;
+    color: var(--fotter-text-color);
+    &:hover{
+        color: var(--header-navigation-hover)    
+    }
 }
