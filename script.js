@@ -84,7 +84,8 @@ function openProduct(id){
             </div>
             <button class="product_model_buy_button">ADD TO CART</button>
         </div>
-    `
+    `;
+    ProductModel.classList.add('active');
 }
 let quantity = 1;
 const quantityValue = document.querySelector('.quantity_value');
