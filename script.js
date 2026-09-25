@@ -23,7 +23,7 @@ function cardsStructure(items){
     grid.innerHTML = products.map(item => {
         const productsCards = cardPlace.includes(item.id);
         return `
-        <div class="product_card" onclick="openProduct()">
+        <div class="product_card" onclick="openProduct(${item.id})">
             <!--card picture and favorite heard--->
             <div class="product_picture_favorite_heard">
                 <img class="product_picture" src="${item.image}">
@@ -59,12 +59,12 @@ function openProduct(id){
 
     ProductModel.innerHTML = `
         <div class="product_model_picture">
-            <img class="product_model_src" src="${item.image}">
+            <img class="product_model_src" src="${product.image}">
         </div>
         <div class="product_model_information">
-            <p class="product_model_name">${item.name}</p>
-            <p class="product_model_price">$${item.price}</p>
-            <p class="product_model_desc>${item.desc}</p>
+            <p class="product_model_name">${product.name}</p>
+            <p class="product_model_price">$${product.price}</p>
+            <p class="product_model_desc>${product.desc}</p>
             <div class="product_model_sizes>
                 <p>Size</p>
                 <div class="size_buttons">
@@ -87,17 +87,16 @@ function openProduct(id){
     `;
     ProductModel.classList.add('active');
 }
-let quantity = 1;
-const quantityValue = document.querySelector('.quantity_value');
+let quantity = 1; document.querySelector('.quantity_value');
 
 function deductQuantity(){
     if(quantity > 1){
         quantity--;
-        quantityValue.textContent = quantity;
+        document.querySelector('.quantity_value').textContent = quantity;
 
     }
 }
 function addQuantity(){
     quantity++;
-    quantityValue.textContent = quantity;
+    document.querySelector('.quantity_value').textContent = quantity;
 }
