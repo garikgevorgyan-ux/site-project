@@ -23,7 +23,7 @@ function cardsStructure(items){
     grid.innerHTML = products.map(item => {
         const productsCards = cardPlace.includes(item.id);
         return `
-        <div class="product_card">
+        <div class="product_card" onclick="openProduct()">
             <!--card picture and favorite heard--->
             <div class="product_picture_favorite_heard">
                 <img class="product_picture" src="${item.image}">
