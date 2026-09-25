@@ -162,6 +162,7 @@ body{
 }
 /* Product card styling and animating */
 .product_card{
+    cursor: pointer;
     height: 420px;
     width: 320px;
     background-color: var(--card-background);
@@ -380,4 +381,26 @@ body{
     &:hover{
         color: var(--header-navigation-hover)    
     }
+}
+/* Product model */
+.product_modal{
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+}
+.product_modal.active{
+    display: flex;
+}
+.product_model_conteiner{
+    min-height: 600px;
+    width: 780px;
+    background-color: #171818;
+    border: solid 2px #303232;
+    border-radius: 20px;
+    
 }
