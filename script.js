@@ -1,8 +1,8 @@
 const products = [
-    {id: 1, name:"Nike Air Max 270", price: 129.99, rating: 4.7, image:"photos/Nike max 270 black.png", desc: "Lightweight everyday sneaker with comfortable cushioning and a sporty design"},
-    {id: 2, name:"Adidas Ultraboost 22", price: 159.99, rating: 4.4, image:"photos/Adidas Ultraboost 22.png", desc: "Responsive cushioning and a comfortable it designed for running and everyday use"},
-    {id: 3, name:"Air Jordan 1 Mid", price: 149.99, rating: 4.9, image:"photos/Air Jordan 1 Mid.png", desc: "Classic basketball-inspired silhouette with a timeless streetwear design."},
-    {id: 4, name:"Puma RS-X", price: 119.99, rating: 4.8, image:"photos/Puma RS-X.png", desc: "Bold retro-inspired design with comfortable cushioning for everyday wear."},
+    {id: 1, name:"Nike Air Max 270", price: 129.99, image:"photos/Nike max 270 black.png", desc: "Lightweight everyday sneaker with comfortable cushioning and a sporty design"},
+    {id: 2, name:"Adidas Ultraboost 22", price: 159.99, image:"photos/Adidas Ultraboost 22.png", desc: "Responsive cushioning and a comfortable it designed for running and everyday use"},
+    {id: 3, name:"Air Jordan 1 Mid", price: 149.99, image:"photos/Air Jordan 1 Mid.png", desc: "Classic basketball-inspired silhouette with a timeless streetwear design."},
+    {id: 4, name:"Puma RS-X", price: 119.99, image:"photos/Puma RS-X.png", desc: "Bold retro-inspired design with comfortable cushioning for everyday wear."},
 ];
 
 let cardPlace = [];
@@ -52,4 +52,51 @@ function cardsStructure(items){
         `;
     }).join("");
 
+}
+function openProduct(id){
+    const product = products.find(item => item.id == id);
+    const ProductModel = document.querySelector('.product_model_conteiner');
+
+    ProductModel.innerHTML = `
+        <div class="product_model_picture">
+            <img class="product_model_src" src="${item.image}">
+        </div>
+        <div class="product_model_information">
+            <p class="product_model_name">${item.name}</p>
+            <p class="product_model_price">$${item.price}</p>
+            <p class="product_model_desc>${item.desc}</p>
+            <div class="product_model_sizes>
+                <p>Size</p>
+                <div class="size_buttons">
+                    <button>40</button>
+                    <button>41</button>
+                    <button>42</button>
+                    <button>43</button>
+                </div>
+            </div>
+            <div class="product_model_quantity">
+                <p>Quantity</p>
+                <div class="quantity_elements">
+                    <button onclick="deductQuantity()">-</button>
+                    <span class="quantity_value">1</span>
+                    <button onclick="addQuantity()">+</button>
+                </div>
+            </div>
+            <button class="product_model_buy_button">ADD TO CART</button>
+        </div>
+    `
+}
+let quantity = 1;
+const quantityValue = document.querySelector('.quantity_value');
+
+function deductQuantity(){
+    if(quantity > 1){
+        quantity--;
+        quantityValue.textContent = quantity;
+
+    }
+}
+function addQuantity(){
+    quantity++;
+    quantityValue.textContent = quantity;
 }
