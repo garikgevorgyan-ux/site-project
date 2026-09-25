@@ -239,6 +239,9 @@ body{
     cursor: pointer;
 }
 /* benefits styling */
+.benefits, .benefits_registration{
+    margin-inline: 85px;
+}
 .benefits_icon{
     width: 50px;
     height: 50px;
@@ -250,7 +253,6 @@ body{
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
-    margin-inline: 85px;
     background-color: var(--card-background);
     border-radius: 10px;
 }
@@ -276,7 +278,6 @@ body{
     display: flex;
     justify-content: space-between;
     background-color: var(--card-background);
-    margin-inline: 85px;
     margin-top: 40px;
     border-radius: 10px;
 }
@@ -331,4 +332,22 @@ body{
         transform: scale(0.95);
     }
 }
-
+.footer{
+    margin-top: 57px;
+    background-color: var(--header);
+}
+.footer_conteiner{
+    display: flex;
+    justify-content: space-between;
+}
+.footer_information_place{
+    display: flex;
+    justify-content: space-around;
+}
+.footer_place_one{
+    margin-left: 64px;
+    margin-top: 26px;
+}
+.footer_logo{
+    margin-bottom: 14px;
+}
