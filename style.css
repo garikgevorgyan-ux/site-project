@@ -383,7 +383,7 @@ body{
     }
 }
 /* Product model */
-.product_modal{
+.product_model{
     position: fixed;
     inset: 0;
     display: none;
@@ -393,7 +393,7 @@ body{
     backdrop-filter: blur(8px);
     z-index: 1000;
 }
-.product_modal.active{
+.product_model.active{
     display: flex;
 }
 .product_model_conteiner{
