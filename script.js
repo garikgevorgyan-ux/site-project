@@ -55,6 +55,7 @@ function cardsStructure(items){
 }
 function openProduct(id){
     const product = products.find(item => item.id == id);
+    const allProductModel = document.querySelector('.product_model')
     const ProductModel = document.querySelector('.product_model_conteiner');
 
     ProductModel.innerHTML = `
@@ -64,7 +65,7 @@ function openProduct(id){
         <div class="product_model_information">
             <p class="product_model_name">${product.name}</p>
             <p class="product_model_price">$${product.price}</p>
-            <p class="product_model_desc>${product.desc}</p>
+            <p class="product_model_desc">${product.desc}</p>
             <div class="product_model_sizes>
                 <p>Size</p>
                 <div class="size_buttons">
@@ -85,7 +86,7 @@ function openProduct(id){
             <button class="product_model_buy_button">ADD TO CART</button>
         </div>
     `;
-    ProductModel.classList.add('active');
+    allProductModel.classList.add('active');
 }
 let quantity = 1; document.querySelector('.quantity_value');
 
