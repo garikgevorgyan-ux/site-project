@@ -402,5 +402,40 @@ body{
     background-color: #171818;
     border: solid 2px #303232;
     border-radius: 20px;
+    position: relative;
     
+}
+.product_model_picture{
+    height: 530px;
+    width: 350px;
+    background-color: #F4F4F2;
+    border-radius: 15px;
+    position: absolute;
+    top: 35px;
+    left: 35px;
+}
+.product_model_src{
+    width:290px;
+    height: 470px;
+    margin: 30px;
+    object-fit: contain;
+}
+.product_model_information{
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 57px;
+}
+.product_model_name{
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--text);
+}
+.product_model_price{
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--green-texts);
+    margin-top: 12px;
 }
