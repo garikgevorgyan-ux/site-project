@@ -62,6 +62,9 @@ function openProduct(id){
         <div class="product_model_picture">
             <img class="product_model_src" src="${product.image}">
         </div>
+        <div class="product_model_cloesd">
+            <button class=closed_button onclick="closedButton()">X</button>
+        </div>
         <div class="product_model_information">
             <p class="product_model_name">${product.name}</p>
             <p class="product_model_price">$${product.price}</p>
@@ -73,6 +76,7 @@ function openProduct(id){
                     <button>41</button>
                     <button>42</button>
                     <button>43</button>
+                    <button>44</button>
                 </div>
             </div>
             <div class="product_model_quantity">
