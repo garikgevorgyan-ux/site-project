@@ -18,6 +18,7 @@ body{
     --text: #FFFFFF;
     --card-background: #181818;
     --fotter-text-color: #777777;
+    --product-model-text: #AFAFAF;
 }
 
 .header_conteiner{
@@ -420,7 +421,7 @@ body{
     margin: 30px;
     object-fit: contain;
 }
-.product_model_information, .product_model_cloesd{
+.product_model_information{
     width: 350px;
     display: flex;
     flex-direction: column;
@@ -428,7 +429,20 @@ body{
     right: 0;
     top: 57px;
 }
-.
+.product_model_cloesd{
+    position: absolute;
+    right: 0;
+    margin-right: 32px;
+    margin-top: 29px;
+}
+.closed_button{
+    height: 31px;
+    width: 18px;
+    background-color: var(--card-background);
+    border: none;
+    font-size: 26px;
+    color: var(--text);
+}
 .product_model_name{
     font-size: 28px;
     font-weight: bold;
@@ -439,4 +453,10 @@ body{
     font-weight: bold;
     color: var(--green-texts);
     margin-top: 12px;
+}
+.product_model_desc{
+    margin-top: 21px;
+    font-size: 14px;
+    color: var(--product-model-text);
+    
 }

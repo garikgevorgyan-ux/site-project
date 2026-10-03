@@ -69,7 +69,7 @@ function openProduct(id){
             <p class="product_model_name">${product.name}</p>
             <p class="product_model_price">$${product.price}</p>
             <p class="product_model_desc">${product.desc}</p>
-            <div class="product_model_sizes>
+            <div class="product_model_sizes">
                 <p>Size</p>
                 <div class="size_buttons">
                     <button>40</button>
