@@ -442,6 +442,7 @@ body{
     border: none;
     font-size: 26px;
     color: var(--text);
+    cursor: pointer;
 }
 .product_model_name{
     font-size: 28px;
@@ -458,5 +459,71 @@ body{
     margin-top: 21px;
     font-size: 14px;
     color: var(--product-model-text);
-    
 }
+.product_model_sizes{
+    margin-top: 35px;
+}
+.product_model_sizes p, .product_model_quantity p{
+    color: var(--text);
+    font-size: 14px;
+    margin-bottom: 17px;
+}
+.size_buttons{
+    display: flex;
+    gap: 12px;
+}
+.size_buttons button{
+    height: 42px;
+    width: 48px;
+    border-radius: 10px;
+    background-color: var(--card-background);
+    border: solid 2px #393B3B;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;  
+}
+.product_model_quantity{
+    margin-top: 24px;
+}
+.quantity_elements{
+    display: flex;
+    width: 135px;
+    height: 46px;
+    border: solid 2px #393B3B;
+    border-radius: 10px;
+}
+.quantity_elements button{
+    height: 45px;
+    width: 45px;
+    border-radius: 10px;
+    background-color: var(--card-background);
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 20px;
+}
+.quantity_elements span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    width: 45px;
+    color: var(--text);
+    font-weight: 500;
+    font-size: 15px;
+}
+.product_model_buy_button{
+    height: 56px;
+    width: 300px;
+    margin-top: 34px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--green-texts);
+    color: #080909;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
