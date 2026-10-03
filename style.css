@@ -420,7 +420,7 @@ body{
     margin: 30px;
     object-fit: contain;
 }
-.product_model_information{
+.product_model_information, .product_model_cloesd{
     width: 350px;
     display: flex;
     flex-direction: column;
@@ -428,6 +428,7 @@ body{
     right: 0;
     top: 57px;
 }
+.
 .product_model_name{
     font-size: 28px;
     font-weight: bold;

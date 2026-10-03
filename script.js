@@ -63,7 +63,7 @@ function openProduct(id){
             <img class="product_model_src" src="${product.image}">
         </div>
         <div class="product_model_cloesd">
-            <button class=closed_button onclick="closedButton()">X</button>
+            <button class="closed_button" onclick="closedButton()">X</button>
         </div>
         <div class="product_model_information">
             <p class="product_model_name">${product.name}</p>
