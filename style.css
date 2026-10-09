@@ -529,5 +529,13 @@ body{
     font-size: 14px;
     font-weight: bold;
     letter-spacing: 1px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    &:hover{
+        opacity: 80%;
+    }
+    &:active{
+        transform: scale(0.95);
+    }
 }
 
