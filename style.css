@@ -483,6 +483,10 @@ body{
     font-weight: bold;
     cursor: pointer;  
 }
+.size_buttons button.active{
+    background-color: var(--green-texts);
+    color: #080909;
+}
 .product_model_quantity{
     margin-top: 24px;
 }
