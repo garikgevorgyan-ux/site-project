@@ -72,11 +72,11 @@ function openProduct(id){
             <div class="product_model_sizes">
                 <p>Size</p>
                 <div class="size_buttons">
-                    <button onclick="modelButtons()">40</button>
-                    <button onclick="modelButtons()">41</button>
-                    <button onclick="modelButtons()">42</button>
-                    <button onclick="modelButtons()">43</button>
-                    <button onclick="modelButtons()">44</button>
+                    <button onclick="modelButtons(this)">40</button>
+                    <button onclick="modelButtons(this)">41</button>
+                    <button onclick="modelButtons(this)">42</button>
+                    <button onclick="modelButtons(this)">43</button>
+                    <button onclick="modelButtons(this)">44</button>
                 </div>
             </div>
             <div class="product_model_quantity">
