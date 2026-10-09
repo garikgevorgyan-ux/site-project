@@ -72,11 +72,11 @@ function openProduct(id){
             <div class="product_model_sizes">
                 <p>Size</p>
                 <div class="size_buttons">
-                    <button>40</button>
-                    <button>41</button>
-                    <button>42</button>
-                    <button>43</button>
-                    <button>44</button>
+                    <button onclick="modelButtons()">40</button>
+                    <button onclick="modelButtons()">41</button>
+                    <button onclick="modelButtons()">42</button>
+                    <button onclick="modelButtons()">43</button>
+                    <button onclick="modelButtons()">44</button>
                 </div>
             </div>
             <div class="product_model_quantity">
@@ -104,4 +104,7 @@ function deductQuantity(){
 function addQuantity(){
     quantity++;
     document.querySelector('.quantity_value').textContent = quantity;
+}
+function modelButtons(button){
+    button.classList.toggle('active');
 }
