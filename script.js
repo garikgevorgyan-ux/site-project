@@ -53,6 +53,10 @@ function cardsStructure(items){
     }).join("");
 
 }
+function toggleHeard(){
+    const heard_button = document.querySelector(".heard_button");
+    heard_button.classList.toggle = "active";
+}
 function openProduct(id){
     const product = products.find(item => item.id == id);
     const allProductModel = document.querySelector('.product_model')
