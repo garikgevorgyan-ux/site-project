@@ -93,6 +93,7 @@ function openProduct(id){
     allProductModel.classList.add('active');
 }
 let quantity = 1; document.querySelector('.quantity_value');
+const allProductModel = document.querySelector(".product_model");
 
 function deductQuantity(){
     if(quantity > 1){
@@ -109,5 +110,5 @@ function modelButtons(button){
     button.classList.toggle('active');
 }
 function closedButton(){
-    ProductModel.style.display = "none";
+    allProductModel.classList.remove('active');
 }
