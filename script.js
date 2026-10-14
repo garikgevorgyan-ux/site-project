@@ -108,3 +108,6 @@ function addQuantity(){
 function modelButtons(button){
     button.classList.toggle('active');
 }
+function closedButton(){
+    ProductModel.style.display = "none";
+}
