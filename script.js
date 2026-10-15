@@ -129,7 +129,9 @@ function busketElement(){
             <h2 class="basket_header_text">YOUR CART</h2>
             <button class="basket_model_closer" onclick="basketClosed()">X</button>
         </div>
-        <
+        <div class="basket_model_products">
+            
+        </div>
     `;
     allBasketModel.classList.add('active');
    
