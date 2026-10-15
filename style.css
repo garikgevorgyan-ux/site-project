@@ -54,7 +54,9 @@ body{
     padding-bottom: 28px;
     padding-right: 95px;
 }
-
+.basket_button{
+    cursor: pointer;
+}
 /* hero styling */
 
 .hero{
@@ -556,6 +558,8 @@ body{
     min-height: 830px;
     width: 520px;
     background-color: #121313;
+    border-top: 2px solid #303232;
+    border-left: 2px solid #303232;
 }
 .basket_model_header{
     margin: 30px 62px 20px 40px;
