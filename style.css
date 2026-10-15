@@ -539,3 +539,10 @@ body{
     }
 }
 
+/* Busket model */
+.basket_model{
+    position: relative;
+    right: 0;
+    backdrop-filter: blur(8px);
+    background-color: #121313;
+}
