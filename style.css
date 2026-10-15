@@ -541,8 +541,37 @@ body{
 
 /* Busket model */
 .basket_model{
-    position: relative;
-    right: 0;
+    position: fixed;
+    inset: 0;
+    justify-content: end;
+    z-index: 1000;
     backdrop-filter: blur(8px);
+    display: none;
+}
+.basket_model.active{
+    display: flex;
+}
+.basket_model_container{
+    margin-top: 70px;
+    min-height: 830px;
+    width: 520px;
     background-color: #121313;
+}
+.basket_model_header{
+    margin: 30px 62px 20px 40px;
+    display: flex;
+    justify-content: space-between;
+}
+.basket_header_text{
+    color: var(--text);
+    letter-spacing: 1px;
+}
+.basket_model_closer{
+    background-color: #121313;
+    border: none;
+    height: 31px;
+    width: 18px;
+    color: var(--text);
+    cursor: pointer;
+    font-size: 22px;
 }
