@@ -120,3 +120,17 @@ function modelButtons(button){
 function closedButton(){
     allProductModel.classList.remove('active');
 }
+
+function busketElement(){
+    const allBasketModel = document.querySelector(".basket_model");
+    const basketModel = document.querySelector(".basket_model_container");
+    basketModel.innerHTML = `
+        <div class="basket_model_header">
+            <h2 class="basket_header_text">
+            <button class="basket_model_closer" onclick="basketClosed()">X</button>
+        </div>
+        <
+    `;
+    allBasketModel.classList.add('active');
+   
+}
