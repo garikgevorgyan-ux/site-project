@@ -46,7 +46,7 @@ function cardsStructure(items){
 
             <!---buy button--->
             <div class="product_buy_element">
-                <button class="product_buy_button" onclick="productBuying()">ADD TO CARD</button>
+                <button class="product_buy_button" onclick="productBuying()">ADD TO CART</button>
             </div>
         </div>
         `;
@@ -126,7 +126,7 @@ function busketElement(){
     const basketModel = document.querySelector(".basket_model_container");
     basketModel.innerHTML = `
         <div class="basket_model_header">
-            <h2 class="basket_header_text">
+            <h2 class="basket_header_text">YOUR CART</h2>
             <button class="basket_model_closer" onclick="basketClosed()">X</button>
         </div>
         <
