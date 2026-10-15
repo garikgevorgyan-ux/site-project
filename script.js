@@ -74,7 +74,7 @@ function openProduct(id){
                 <div class="size_buttons">
                     <button onclick="modelButtons(this)">40</button>
                     <button onclick="modelButtons(this)">41</button>
-                    <button onclick="modelButtons(this)">42</button>
+                    <button class="active" onclick="modelButtons(this)">42</button>
                     <button onclick="modelButtons(this)">43</button>
                     <button onclick="modelButtons(this)">44</button>
                 </div>
@@ -107,7 +107,15 @@ function addQuantity(){
     document.querySelector('.quantity_value').textContent = quantity;
 }
 function modelButtons(button){
-    button.classList.toggle('active');
+    const buttons = document.querySelectorAll(".size_buttons button");
+    if(button.classList.toggle("active") == true){
+        buttons.forEach(btn => {
+            if(btn !== button){
+                btn.classList.remove("active");
+            }
+        });
+    }
+    
 }
 function closedButton(){
     allProductModel.classList.remove('active');
