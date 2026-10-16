@@ -1,18 +1,17 @@
 const products = [
-    {id: 1, name:"Nike Air Max 270", price: 129.99, image:"photos/Nike max 270 black.png", desc: "Lightweight everyday sneaker with comfortable cushioning and a sporty design"},
-    {id: 2, name:"Adidas Ultraboost 22", price: 159.99, image:"photos/Adidas Ultraboost 22.png", desc: "Responsive cushioning and a comfortable it designed for running and everyday use"},
-    {id: 3, name:"Air Jordan 1 Mid", price: 149.99, image:"photos/Air Jordan 1 Mid.png", desc: "Classic basketball-inspired silhouette with a timeless streetwear design."},
-    {id: 4, name:"Puma RS-X", price: 119.99, image:"photos/Puma RS-X.png", desc: "Bold retro-inspired design with comfortable cushioning for everyday wear."},
+    { id: 1, name: "Nike Air Max 270", price: 129.99, image: "photos/Nike max 270 black.png", desc: "Lightweight everyday sneaker with comfortable cushioning and a sporty design" },
+    { id: 2, name: "Adidas Ultraboost 22", price: 159.99, image: "photos/Adidas Ultraboost 22.png", desc: "Responsive cushioning and a comfortable it designed for running and everyday use" },
+    { id: 3, name: "Air Jordan 1 Mid", price: 149.99, image: "photos/Air Jordan 1 Mid.png", desc: "Classic basketball-inspired silhouette with a timeless streetwear design." },
+    { id: 4, name: "Puma RS-X", price: 119.99, image: "photos/Puma RS-X.png", desc: "Bold retro-inspired design with comfortable cushioning for everyday wear." },
 ];
 
 let cardPlace = [];
 window.addEventListener('DOMContentLoaded', () => {
     cardsStructure(products);
 })
-function cardsStructure(items){
+function cardsStructure(items) {
     const grid = document.querySelector('.featured_card_grid');
-
-    if(products.length === 0){
+    if (products.length === 0) {
         grid.innerHTML = `
             <div class="featured_not_founded_card">
                 <h3>Nothing found for your request.</h3>
@@ -53,7 +52,7 @@ function cardsStructure(items){
     }).join("");
 
 }
-function openProduct(id){
+function openProduct(id) {
     const product = products.find(item => item.id == id);
     const allProductModel = document.querySelector('.product_model')
     const ProductModel = document.querySelector('.product_model_conteiner');
@@ -87,7 +86,7 @@ function openProduct(id){
                     <button onclick="addQuantity()">+</button>
                 </div>
             </div>
-            <button class="product_model_buy_button">ADD TO CART</button>
+            <button class="product_model_buy_button" onclick="productBuying(products.find(item => item.id == ${product.id}))">ADD TO CART</button>
         </div>
     `;
     allProductModel.classList.add('active');
@@ -95,33 +94,33 @@ function openProduct(id){
 let quantity = 1; document.querySelector('.quantity_value');
 const allProductModel = document.querySelector(".product_model");
 
-function deductQuantity(){
-    if(quantity > 1){
+function deductQuantity() {
+    if (quantity > 1) {
         quantity--;
         document.querySelector('.quantity_value').textContent = quantity;
 
     }
 }
-function addQuantity(){
+function addQuantity() {
     quantity++;
     document.querySelector('.quantity_value').textContent = quantity;
 }
-function modelButtons(button){
+function modelButtons(button) {
     const buttons = document.querySelectorAll(".size_buttons button");
-    if(button.classList.toggle("active") == true){
+    if (button.classList.toggle("active") == true) {
         buttons.forEach(btn => {
-            if(btn !== button){
+            if (btn !== button) {
                 btn.classList.remove("active");
             }
         });
     }
-    
+
 }
-function closedButton(){
+function closedButton() {
     allProductModel.classList.remove('active');
 }
 
-function busketElement(){
+function busketElement() {
     const allBasketModel = document.querySelector(".basket_model");
     const basketModel = document.querySelector(".basket_model_container");
     basketModel.innerHTML = `
@@ -129,10 +128,44 @@ function busketElement(){
             <h2 class="basket_header_text">YOUR CART</h2>
             <button class="basket_model_closer" onclick="basketClosed()">X</button>
         </div>
+        <hr>
         <div class="basket_model_products">
             
         </div>
     `;
     allBasketModel.classList.add('active');
-   
+
+}
+function productBuying(product) {
+    if (!product){ 
+        return;
+    }
+    if (!document.querySelector(".basket_model_products")) {
+        busketElement();
+    }
+
+    const basketProductDiv = document.createElement('div');
+    basketProductDiv.className = "basket_product_container";
+
+    const selectedSize = document.querySelector(".size_buttons button.active");
+    const size = selectedSize.textContent;
+
+    const price = calculatePrice(product, quantity);
+    const productQuantity = quantity;
+
+    basketProductDiv.innerHTML = `
+        <div class="basket_product_picture">
+            <img class="basket_product_src" src="${product.image}">
+        </div>
+        <div class="basket_product_info">
+            <p class="basket_product_name">${product.name}</p>
+            <p class="basket_product_size">Size: ${size}</p>
+            <p class="basket_product_price">$${price.toFixed(2)}</p>
+            <p class="basket_product_quantity">Quantity: ${productQuantity}</p>
+        </div>  
+    `;
+    document.querySelector(".basket_model_products").appendChild(basketProductDiv);
+}
+function calculatePrice(product, quantity) {
+    return product.price * quantity
 }
