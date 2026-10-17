@@ -120,6 +120,8 @@ function closedButton() {
     allProductModel.classList.remove('active');
 }
 
+let basketProducts = [];
+
 function busketElement() {
     const allBasketModel = document.querySelector(".basket_model");
     const basketModel = document.querySelector(".basket_model_container");
@@ -134,7 +136,7 @@ function busketElement() {
         </div>
     `;
     allBasketModel.classList.add('active');
-
+    renderBasketProducts();
 }
 function productBuying(product) {
     if (!product){ 
@@ -144,28 +146,89 @@ function productBuying(product) {
         busketElement();
     }
 
-    const basketProductDiv = document.createElement('div');
-    basketProductDiv.className = "basket_product_container";
-
     const selectedSize = document.querySelector(".size_buttons button.active");
     const size = selectedSize.textContent;
 
     const price = calculatePrice(product, quantity);
     const productQuantity = quantity;
 
-    basketProductDiv.innerHTML = `
+    const existingProduct = basketProducts.find(item => 
+        item.product.id == product.id && item.size == size
+    );
+    if(existingProduct){
+        existingProduct.quantity += productQuantity;
+    }
+    else{
+        basketProducts.push({
+        product: product,
+        size: size,
+        quantity: productQuantity
+    });
+    }
+
+    if(!document.querySelector(".basket_model_products")){
+        busketElement();
+    }
+    else{
+        renderBasketProducts();
+    }
+
+}
+
+function renderBasketProducts(){
+    const basketProductsDiv = document.querySelector('.basket_model_products');
+    if(!basketProductsDiv){
+        return;
+    }
+    basketProductsDiv.innerHTML = "";
+
+    basketProducts.forEach(item => {
+        const basketProductDiv = document.createElement('div');
+        basketProductDiv.classList = "basket_product_container";
+
+        const price = calculatePrice(
+            item.product, 
+            item.quantity
+        );
+
+        basketProductDiv.innerHTML = `
         <div class="basket_product_picture">
-            <img class="basket_product_src" src="${product.image}">
+            <img class="basket_product_src" src="${item.product.image}">
         </div>
         <div class="basket_product_info">
-            <p class="basket_product_name">${product.name}</p>
-            <p class="basket_product_size">Size: ${size}</p>
+            <p class="basket_product_name">${item.product.name}</p>
+            <p class="basket_product_size">Size: ${item.size}</p>
             <p class="basket_product_price">$${price.toFixed(2)}</p>
-            <p class="basket_product_quantity">Quantity: ${productQuantity}</p>
+            <div class="basket_quantity_elements">
+                <button onclick="changeBasketQuantity(${basketProducts.indexOf(item)},-1)">-</button>
+                <span class="quantity_value">${item.quantity}</span>
+                <button onclick="changeBasketQuantity(${basketProducts.indexOf(item)},1)">+</button>
+            </div>
         </div>  
     `;
-    document.querySelector(".basket_model_products").appendChild(basketProductDiv);
+
+    basketProductsDiv.appendChild(basketProductDiv);
+    });
 }
 function calculatePrice(product, quantity) {
     return product.price * quantity
+}
+function basketClosed(){
+    const allBasketModel = document.querySelector('.basket_model');
+    allBasketModel.classList.remove('active');
+}
+function changeBasketQuantity(index, change){
+    const item = basketProducts[index]; //x[i]
+
+    if(!item){
+        return;
+    }
+
+    item.quantity += change;
+
+    if(item.quantity <= 0){
+        basketProducts.splice(index,1);
+    }
+
+    renderBasketProducts();
 }
