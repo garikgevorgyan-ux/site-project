@@ -201,7 +201,7 @@ function renderBasketProducts(){
             <p class="basket_product_price">$${price.toFixed(2)}</p>
             <div class="basket_quantity_elements">
                 <button onclick="changeBasketQuantity(${basketProducts.indexOf(item)},-1)">-</button>
-                <span class="quantity_value">${item.quantity}</span>
+                <span class="basket_quantity_value">${item.quantity}</span>
                 <button onclick="changeBasketQuantity(${basketProducts.indexOf(item)},1)">+</button>
             </div>
         </div>  

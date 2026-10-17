@@ -623,14 +623,39 @@ body{
     font-size: 14px;
     font-weight: 600;
     color: var(--green-texts);
+    margin-bottom: 9px;
 }
 .basket_quantity_elements{
     height: 32px;
     width: 105px;
     border-radius: 10px;
-    border: solid 2px #303232
+    border: solid 2px #303232;
+    display: flex;
+    align-items: center;
 }
 .basket_quantity_elements button{
+    height: 32px;
+    width: 35px;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    color: var(--text);
+    background-color: #181919;
+    cursor: pointer;
+    &:active{
+        opacity: 80%;
+        background-color: #282b2b;
+    }
+}
+.basket_quantity_value{
     width: 35px;
     height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    color: var(--text);
+    font-size: 12px;
+    font-weight: bold;
 }
