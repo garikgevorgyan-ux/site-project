@@ -134,9 +134,24 @@ function busketElement() {
         <div class="basket_model_products">
             
         </div>
+        <hr>
+        <div class="basket_model_total_panel">
+            <div class="subtotal_elements">
+                <p class="subtotal_text">Subtotal</p>
+                <p class="subtotal_price"></p>
+            </div>
+            <div class="shipping_elements">
+                <p class="shipping_text">Shipping</p>
+                <p class="shipping_price">$0.00</p>
+            </div>
+            <div class="basket_model_total_buttons">
+                <button class="checkout_button" onclick="checkoutButton()">CHECKOUT</button>
+            </div>
+        </div>
     `;
     allBasketModel.classList.add('active');
     renderBasketProducts();
+    calculateSubtotal();
 }
 function productBuying(product) {
     if (!product){ 
@@ -171,6 +186,7 @@ function productBuying(product) {
     }
     else{
         renderBasketProducts();
+        calculateSubtotal();
     }
 
 }
@@ -231,4 +247,19 @@ function changeBasketQuantity(index, change){
     }
 
     renderBasketProducts();
+    calculateSubtotal();
+}
+
+function calculateSubtotal(){
+    const subtotalElement = document.querySelector('.subtotal_price');
+
+    if(!subtotalElement){
+        return;
+    }
+
+    const subtotal = basketProducts.reduce((total, item) =>{
+        return total + calculatePrice(item.product, item.quantity);
+    },0);
+
+    subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
 }
