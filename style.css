@@ -623,5 +623,14 @@ body{
     font-size: 14px;
     font-weight: 600;
     color: var(--green-texts);
-    
+}
+.basket_quantity_elements{
+    height: 32px;
+    width: 105px;
+    border-radius: 10px;
+    border: solid 2px #303232
+}
+.basket_quantity_elements button{
+    width: 35px;
+    height: 32px;
 }
