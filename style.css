@@ -579,6 +579,12 @@ body{
     cursor: pointer;
     font-size: 22px;
 }
+.basket_model_products{
+    max-height: 350px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-color: #454949 #181919;
+}
 .basket_product_container{
     display: flex;
     flex-direction: row;
@@ -658,4 +664,38 @@ body{
     color: var(--text);
     font-size: 12px;
     font-weight: bold;
+}
+.basket_model_total_panel{
+    margin: 27px 44px 214px 30px;
+}
+.subtotal_elements, .shipping_elements{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 19px;
+}
+.subtotal_text, .shipping_text{
+    font-size: 14px;
+    color: #AAAAAA;
+}
+.shipping_price, .subtotal_price{
+    font-size: 14px;
+    color: var(--text);
+}
+.checkout_button{
+    width: 440px;
+    height: 56px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--green-texts);
+    color: #080909;
+    font-size: 14px;
+    font-weight:600;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    &:hover{
+        opacity: 80%;
+    }
+    &:active{
+        transform: scale(0.95);
+    }
 }
