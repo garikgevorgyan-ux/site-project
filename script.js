@@ -269,3 +269,15 @@ function calculateSubtotal(){
     subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
     totalElement.textContent = `$${subtotal.toFixed(2)}`;
 }
+
+function checkoutButton(){
+    if(basketProducts.length === 0){
+        alert("There is nothing in the basket")
+    }
+    else{
+        alert('Your order has been placed. Enjoy!');
+        basketProducts = [];
+        renderBasketProducts();
+        calculateSubtotal();
+    }
+}
