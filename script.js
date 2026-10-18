@@ -144,6 +144,10 @@ function busketElement() {
                 <p class="shipping_text">Shipping</p>
                 <p class="shipping_price">$0.00</p>
             </div>
+            <div class="total_elements">
+                <p class="total_text">Total</p>
+                <p class="total_price"></p>
+            </div>
             <div class="basket_model_total_buttons">
                 <button class="checkout_button" onclick="checkoutButton()">CHECKOUT</button>
             </div>
@@ -252,6 +256,7 @@ function changeBasketQuantity(index, change){
 
 function calculateSubtotal(){
     const subtotalElement = document.querySelector('.subtotal_price');
+    const totalElement = document.querySelector(".total_price");
 
     if(!subtotalElement){
         return;
@@ -262,4 +267,5 @@ function calculateSubtotal(){
     },0);
 
     subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+    totalElement.textContent = `$${subtotal.toFixed(2)}`;
 }
