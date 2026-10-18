@@ -668,7 +668,7 @@ body{
 .basket_model_total_panel{
     margin: 27px 44px 214px 30px;
 }
-.subtotal_elements, .shipping_elements{
+.subtotal_elements, .shipping_elements, .total_elements{
     display: flex;
     justify-content: space-between;
     margin-bottom: 19px;
@@ -698,4 +698,15 @@ body{
     &:active{
         transform: scale(0.95);
     }
+}
+.total_text{
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--text);
+}
+.total_price{
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--green-texts);
 }
